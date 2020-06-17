@@ -11,7 +11,7 @@ class Job(models.Model):
 
     
     def __str__(self):
-        return self.name
+        return self.company
     
     def get_absolute_url(self):
        return reverse('detail', kwargs={'job_id': self.id})
