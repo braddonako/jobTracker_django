@@ -44,7 +44,6 @@ class JobCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
     fields = ['cover_letter']

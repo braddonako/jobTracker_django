@@ -11,5 +11,10 @@ main {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
-  color: purple;
+  background-color: blue;
+  color: white;
+}
+
+nav {
+  background-color: blue;
 }
