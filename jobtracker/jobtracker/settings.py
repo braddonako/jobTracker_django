@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'jobtracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jobtracker',
+        'NAME': 'newJobTracker',
     }
 }
 

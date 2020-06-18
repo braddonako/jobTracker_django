@@ -13,9 +13,9 @@
 
     <form action="" method="post">
     {% csrf_token %}
-    <table>
+    <table class="striped">
       <!-- Render the inputs inside of <tr>s & <td>s -->
-      {{ form.as_table }}
+      {{ form.as_p }}
     </table>
     <input type="submit" value="Submit!" class="btn">
   </form>

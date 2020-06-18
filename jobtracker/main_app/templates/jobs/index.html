@@ -8,10 +8,8 @@
       <a href='{% url "detail" job.id%}'>
     <div class="card-content">
       <span class="card-title">{{ job.company }}</span>
-      <p>Position: {{ job.position }}</p>
-      <p>Did you submit a cover letter? {{ job.cover_letter }}</p>
-      <p>Did you follow up with someone at the Company?: {{job.followup}}</p>
-      <p>Notes: {{job.notes}}</p>
+      <p>{{ job.position }}</p>
+      <p><input type='checkbox' value={{job.cover_letter}} />Referral? {{job.cover_letter}}</p>
     </div>
     </a>
   </div>
