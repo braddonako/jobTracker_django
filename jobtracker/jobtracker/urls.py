@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 # Add the include function to the import
 from django.urls import path, include
+#Add Django site authentication urls (for login, logout, password management)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # In this case '' represents the root route
     path('', include('main_app.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

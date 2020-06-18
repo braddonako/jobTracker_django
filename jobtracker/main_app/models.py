@@ -1,19 +1,26 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+
+from datetime import date
+
+
 # Create your models here.
 
 UPDATES = (
     ('u', 'Update'),
-    ('i', 'Important!!!'),
+    ('!', 'Important!!!'),
     ('p', 'Phone Screen'),
     ('f', 'Follow up'),
-    ('c', 'The job has been closed')
+    ('c', 'The job has been closed'),
+    ('i','Interview')
 )
 
 class Job(models.Model):
     company= models.CharField(max_length=100)
     position = models.CharField(max_length=100)
     cover_letter = models.CharField(max_length=750)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.company
