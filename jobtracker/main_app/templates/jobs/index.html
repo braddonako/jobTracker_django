@@ -5,11 +5,13 @@
 
 {% for job in jobs %}
   <div class="card">
-      <a href='{% url "detail" job.id%}'>
+      <a href='{% url "detail" job.id%}' class='jobId'>
     <div class="card-content">
       <span class="card-title">{{ job.company }}</span>
       <p>{{ job.position }}</p>
-      <p><input type='checkbox' value={{job.cover_letter}} />Referral? {{job.cover_letter}}</p>
+      <!-- <p>{{job.date}}</p> -->
+      <!-- <p><input type='checkbox' value={{job.cover_letter}} />Referral? {{job.cover_letter}}</p> -->
+      <p class='learnMore'>Click to learn more</p>
     </div>
     </a>
   </div>

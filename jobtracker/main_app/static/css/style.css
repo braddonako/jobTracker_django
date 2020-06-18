@@ -1,20 +1,33 @@
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 footer.page-footer {
-  padding-top: 0;
-  text-align: right;
-  background-color: blue;
-  color: white;
+    padding-top: 0;
+    text-align: right;
+    min-height: 75px;
 }
 
-nav {
-  background-color: blue;
+a.left.brand-logo{
+    font-family: 'Suez One', serif;
+}
+
+a.nav-link{
+    font-family: 'Suez One', serif;
+}
+
+/* Home */
+.jobId{
+    text-transform: none;
+    color: black;
+}
+
+.learnMore {
+    color: red;
 }
