@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xph7=-8s^a2zasidw8(d_a2s#nfd=2dcap57em4%0r!si1vb1^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://job-track3r.herokuapp.com/', "127.0.0.1"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
