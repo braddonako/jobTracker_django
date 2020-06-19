@@ -37,7 +37,7 @@ def about(request):
 # @login_required
 class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
-    fields = ['company', 'position', 'cover_letter']
+    fields = ['date', 'company', 'position']
 
     def form_valid(self, form):
         form.instance.user = self.request.user  # form.instance is the job
@@ -46,7 +46,7 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    fields = ['cover_letter']
+    fields = ['position', 'company', 'location', 'comment']
 
 
 class JobDelete(LoginRequiredMixin, DeleteView):

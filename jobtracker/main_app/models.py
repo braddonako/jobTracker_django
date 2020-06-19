@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 from datetime import date
+from django.utils import timezone
 
 
 # Create your models here.
@@ -17,17 +18,21 @@ UPDATES = (
 )
 
 class Job(models.Model):
+    date = models.DateField('Date applied', default=timezone.now())
     company= models.CharField(max_length=100)
     position = models.CharField(max_length=100)
-    cover_letter = models.CharField(max_length=750)
+    location = models.CharField(max_length=100, default='')
+    comment = models.TextField(max_length=250, default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.company
+       return f"{self.company} on {self.date}"
 
-    
     def get_absolute_url(self):
        return reverse('detail', kwargs={'job_id': self.id})
+
+    class Meta:
+        ordering = ['-date']
 
 class Note(models.Model):
     date = models.DateField('Date posted')
@@ -47,3 +52,4 @@ class Note(models.Model):
 
     class Meta:
         ordering = ['-date']
+        

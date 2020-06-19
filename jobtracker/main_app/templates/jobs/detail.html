@@ -8,8 +8,9 @@
     <div class="card-content">
       <span class="card-title">{{ job.company }}</span>
       <p>{{ job.position }}</p>
-      <p>Cover letter info: {{ job.cover_letter }}</p>
-      <!-- <p>Who did you follow up with?: {{job.followup}}</p>  -->
+      <p>Date applied: {{ job.date }}</p>
+      <p>Location: {{job.location}}</p>
+      <p>Important notes: {{job.comment}}</p> 
     </div>
     <div class="card-action">
         <a href="{% url 'jobs_update' job.id %}">Edit</a>
