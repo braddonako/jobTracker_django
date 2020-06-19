@@ -1,6 +1,7 @@
 from django.urls import path, include
 from . import views
 from django.conf.urls.static import static
+from django.conf import settings
 
 
 
@@ -17,3 +18,7 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+
+
+

@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.files.storage import FileSystemStorage
+
 from .models import Job
 from .forms import NoteForm
 
@@ -81,6 +83,8 @@ def add_note(request, job_id):
 def upload(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
+        fs = FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
         print(uploaded_file.name)
         print(uploaded_file.file)
     return render(request, 'upload.html')
