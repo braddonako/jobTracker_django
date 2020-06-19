@@ -80,14 +80,4 @@ def add_note(request, job_id):
         new_note.save()
     return redirect('detail', job_id=job_id)
 
-def upload(request):
-    if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        fs.save(uploaded_file.name, uploaded_file)
-        print(uploaded_file.name)
-        print(uploaded_file.file)
-    return render(request, 'upload.html')
-
-
 

@@ -1,13 +1,11 @@
 from django.urls import path, include
 from . import views
 from django.conf.urls.static import static
-from django.conf import settings
 
 
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('upload/', views.upload, name='upload'),
     path('about/', views.about, name='about'),
     path('jobs/', views.jobs_index, name='index'),
     path('jobs/<int:job_id>/', views.jobs_detail, name='detail'),
@@ -18,7 +16,3 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
-
-
-
-
