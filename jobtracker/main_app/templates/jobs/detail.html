@@ -17,6 +17,21 @@
         <a href="{% url 'jobs_delete' job.id %}">Delete</a>
     </div>
   </div>
+
+  {% for upload in job.upload_set.all %}
+  <img class="responsive-img card-panel" src="{{upload.url}}">
+  {% empty %}
+  <div class="card-panel teal-text center-align">No Files Uploaded</div>
+  {% endfor %}
+
+  <form action="{% url 'add_upload' job.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+    {% csrf_token %}
+    <input type="file" name="upload-file">
+    <br><br>
+    <input type="submit" class="btn" value="Upload File">
+  </form>
+
+
   </div>
   <div class="col s6">
     <form action="{% url 'add_note' job.id %}" method="post">

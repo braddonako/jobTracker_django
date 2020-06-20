@@ -4,10 +4,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.files.storage import FileSystemStorage
 
-from .models import Job
+import uuid
+import boto3
+
+from .models import Job, Upload
 from .forms import NoteForm
+
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET = 'jobtrack3r'
+
 
 def signup(request):
   error_message = ''
@@ -81,3 +87,19 @@ def add_note(request, job_id):
     return redirect('detail', job_id=job_id)
 
 
+def add_upload(request, job_id):
+    upload_file = request.FILES.get('upload-file', None)
+    if upload_file:
+        s3.boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + upload_file.name[upload_file.name.rfind('.'):]
+
+        try: 
+            s3.upload_fileobj(upload_file, BUCKET, key)
+
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+
+            upload = Upload(url=url, jon_ib=job_id)
+            upload.save()
+        except:
+            print('An error occured uploading file to S3')
+    return redirect('detail', job_id=job_id)
