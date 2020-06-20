@@ -90,7 +90,7 @@ def add_note(request, job_id):
 def add_upload(request, job_id):
     upload_file = request.FILES.get('upload-file', None)
     if upload_file:
-        s3.boto3.client('s3')
+        s3 = boto3.client('s3')
         key = uuid.uuid4().hex[:6] + upload_file.name[upload_file.name.rfind('.'):]
 
         try: 
