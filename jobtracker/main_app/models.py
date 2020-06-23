@@ -6,6 +6,7 @@ from datetime import date
 from django.utils import timezone
 
 
+
 # Create your models here.
 
 UPDATES = (
@@ -22,7 +23,7 @@ class Job(models.Model):
     company= models.CharField(max_length=100)
     position = models.CharField(max_length=100)
     location = models.CharField(max_length=100, default='')
-    comment = models.TextField(max_length=250, default='')
+    comment = models.TextField(max_length=250, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
@@ -53,9 +54,9 @@ class Note(models.Model):
     class Meta:
         ordering = ['-date']
 
-class Upload(models.Model):
-    url = models.CharField(max_length=200)
-    job = models.ForeignKey(Job, on_delete=models.CASCADE)
+class Resume(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=100)
+    resume = models.FileField()
 
-    def __str__(self):
-        return f"Cover letter for job_id: {self.job_id} @{self.url}"
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)

@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 import boto3
 
-from .models import Job, Upload
+from .models import Job, Resume
 from .forms import NoteForm
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
@@ -45,7 +45,7 @@ def about(request):
 # @login_required
 class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
-    fields = ['date', 'company', 'position']
+    fields = ['date', 'company', 'position', 'location', 'comment']
 
     def form_valid(self, form):
         form.instance.user = self.request.user  # form.instance is the job
@@ -54,7 +54,7 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    fields = ['position', 'company', 'location', 'comment']
+    fields = ['location', 'comment']
 
 
 class JobDelete(LoginRequiredMixin, DeleteView):
@@ -86,20 +86,25 @@ def add_note(request, job_id):
         new_note.save()
     return redirect('detail', job_id=job_id)
 
-
-def add_upload(request, job_id):
-    upload_file = request.FILES.get('upload-file', None)
-    if upload_file:
+@login_required
+def add_resume(request, job_id):
+    # photo-file will be the "name" attribute on the <input type="file">
+    resume_file = request.FILES.get('resume-file', None)
+    boto3.set_stream_logger('botocore', level='DEBUG')
+    if resume_file:
         s3 = boto3.client('s3')
-        key = uuid.uuid4().hex[:6] + upload_file.name[upload_file.name.rfind('.'):]
-
-        try: 
-            s3.upload_fileobj(upload_file, BUCKET, key)
-
+        
+        # need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + \
+            resume_file.name[resume_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            s3.upload_fileobj(resume_file, BUCKET, key)
+            # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-
-            upload = Upload(url=url, jon_ib=job_id)
-            upload.save()
+            # we can assign to cat_id or cat (if you have a cat object)
+            resume = Resume(url=url, job_id=job_id)
+            resume.save()
         except:
-            print('An error occured uploading file to S3')
+            print('An error occurred uploading file to S3')
     return redirect('detail', job_id=job_id)
