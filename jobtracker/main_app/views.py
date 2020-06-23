@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 import uuid
 
-from .models import Job, Resume
+from .models import Job
 from .forms import NoteForm
 
 

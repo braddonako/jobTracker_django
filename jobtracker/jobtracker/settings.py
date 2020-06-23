@@ -14,11 +14,18 @@ import django_heroku
 import os
 import environ
 environ.Env()
-environ.Env.read_env('SECRET_KEY')
+environ.Env.read_env()
+
+
+def some_function(request):
+    my_key = os.environ['SECRET_KEY']
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "jobtracker.settings.local")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
