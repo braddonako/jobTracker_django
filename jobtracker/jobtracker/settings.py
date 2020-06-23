@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import django_heroku
 import os
 import environ
 environ.Env()
@@ -25,7 +26,6 @@ AWS_S3_REGION_NAME = 'us-east-2'
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xph7=-8s^a2zasidw8(d_a2s#nfd=2dcap57em4%0r!si1vb1^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -129,3 +129,5 @@ STATIC_URL = '/static/'
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/jobs/'
 LOGOUT_REDIRECT_URL = '/'
+
+django_heroku.settings(locals())
