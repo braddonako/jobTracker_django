@@ -6,13 +6,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 import uuid
-import boto3
 
 from .models import Job, Resume
 from .forms import NoteForm
-
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET = 'jobtrack3r'
 
 
 def signup(request):
