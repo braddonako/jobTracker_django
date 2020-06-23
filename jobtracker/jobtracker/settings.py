@@ -22,7 +22,6 @@ def some_function(request):
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "jobtracker.settings.local")
 
