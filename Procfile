@@ -1,2 +1,2 @@
-release: python3 manage.py migrate --pythonpath jobtracker.manage
+release: python manage.py migrate --pythonpath jobtracker.manage
 web: gunicorn --pythonpath jobtracker jobtracker.wsgi
