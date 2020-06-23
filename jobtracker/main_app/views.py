@@ -86,25 +86,4 @@ def add_note(request, job_id):
         new_note.save()
     return redirect('detail', job_id=job_id)
 
-@login_required
-def add_resume(request, job_id):
-    # photo-file will be the "name" attribute on the <input type="file">
-    resume_file = request.FILES.get('resume-file', None)
-    boto3.set_stream_logger('botocore', level='DEBUG')
-    if resume_file:
-        s3 = boto3.client('s3')
-        
-        # need a unique "key" for S3 / needs image file extension too
-        key = uuid.uuid4().hex[:6] + \
-            resume_file.name[resume_file.name.rfind('.'):]
-        # just in case something goes wrong
-        try:
-            s3.upload_fileobj(resume_file, BUCKET, key)
-            # build the full url string
-            url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
-            resume = Resume(url=url, job_id=job_id)
-            resume.save()
-        except:
-            print('An error occurred uploading file to S3')
-    return redirect('detail', job_id=job_id)
+
