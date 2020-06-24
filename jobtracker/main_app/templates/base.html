@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>appliTrack</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link href="https://fonts.googleapis.com/css2?family=Anton" rel="stylesheet">
@@ -29,7 +30,7 @@
         
         <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
-          <li><a href="{% url 'jobs_create' %}" class='nav-link'>Add a new Job</a></li>
+          <li><a href="{% url 'jobs_create' %}" class='nav-link'>Add new Job</a></li>
           <li><a href="{% url 'index' %}" class='nav-link'>View all jobs</a></li>
           <li><a href="{% url 'logout'%}?next={{request.path}}" class='nav-link'>Logout</a></li>
         
@@ -43,11 +44,11 @@
       </div>
     </nav>
   </header>
-  <ul class="sidenav" id="mobile">
+  <ul class="sidenav right" id="mobile">
     {% if user.is_authenticated %}
-    <li><a href="{% url 'jobs_create' %}">Add a new job</a></li>
-    <li><a href="{% url 'index' %}">View all jobs</a></li>
-    <li><a href="{% url 'logout' %}">Log Out</a></li>
+    <li><a href="{% url 'jobs_create' %}" class='nav-link'>Add a new job</a></li>
+    <li><a href="{% url 'index' %}" class='nav-link'>All jobs</a></li>
+    <li><a href="{% url 'logout' %}" class='nav-link'>Log Out</a></li>
     {% else %}
     <li><a href="{% url 'signup' %}">Sign Up</a></li>
     <li><a href="{% url 'login' %}">Log In</a></li>

@@ -34,6 +34,30 @@ a.nav-link{
     margin-right:20px;
 }
 
+
+/* mobile navbar */
+.sidenav {
+    max-width:50%;
+}
+
+.sidenav li>a {
+    color: rgba(18, 53, 127, 1);
+    display: block;
+    font-family: 'Medula One', cursive;
+    font-size: 22px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+}
+
+i.material-icons {
+    color: rgba(18, 53, 127, 1);
+    padding-top: 20px;
+    float: right;
+}
+
+
 /* Home */
 .jobId{
     text-transform: none;
@@ -141,4 +165,19 @@ nav, footer.page-footer{
 
  th, label.active{
     color:rgba(18, 53, 127, 1);
+ }
+
+ .striped {
+     padding-top: 50px;
+     text-align: center;
+ }
+
+ tr {
+     font-size: 25px;
+     color:rgba(18, 53, 127, 1);
+ }
+
+ .tdbody {
+     color: rgba(18, 53, 127, 1);
+     font-size: 15px;
  }
