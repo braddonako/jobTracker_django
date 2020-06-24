@@ -32,7 +32,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "jobtracker.settings.local")
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -128,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/jobs/'

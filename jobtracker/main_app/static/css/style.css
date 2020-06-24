@@ -1,3 +1,12 @@
+@media (min-width: 600px) {
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    /* background-color: ; */
+}
+}
+
 body {
     display: flex;
     min-height: 100vh;
@@ -29,5 +38,12 @@ a.nav-link{
 }
 
 .learnMore {
+    color: red;
+}
+
+/* card */
+.card-title {
+    text-transform: uppercase;
+    font-weight: 900;
     color: red;
 }

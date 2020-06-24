@@ -30,6 +30,8 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+
+
 # Define the home view
 def home(request):
   return render(request, 'home.html')
