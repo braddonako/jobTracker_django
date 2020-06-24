@@ -6,23 +6,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>jobTracker</title>
+  <title>appliTrack</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link href="https://fonts.googleapis.com/css2?family=Anton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bevan&family=Medula+One&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </head>
 <body>
   <header class='navbar-fixed'>
-    <nav class='blue'>
+    <nav class=''>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;jobTracker</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="/" class="left brand-logo">Hi, {{user.username}}</a></li>
+          {% else %}
+          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;appliTrack</a></li>
+          {% endif %}
         </ul>
         
-        <ul class="right">
-          <li><a href="{% url 'about' %}" class='nav-link'>About</a></li>
+        <ul class="right" >
           {% if user.is_authenticated %}
           <li><a href="{% url 'jobs_create' %}" class='nav-link'>Add a new Job</a></li>
           <li><a href="{% url 'index' %}" class='nav-link'>View all jobs</a></li>
@@ -42,7 +46,7 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer blue">
+  <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2020 jobTracker &nbsp;</div>
   </footer>
 </body>

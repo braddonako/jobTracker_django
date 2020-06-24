@@ -1,20 +1,14 @@
-@media (min-width: 600px) {
-body {
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    /* background-color: ; */
-}
-}
 
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: rgba(134, 228, 155);
 }
 
 main {
     flex: 1 0 auto;
+    
 }
 
 footer.page-footer {
@@ -24,11 +18,20 @@ footer.page-footer {
 }
 
 a.left.brand-logo{
-    font-family: 'Suez One', serif;
+    font-family: 'Medula One', cursive;
+    color: rgba(18, 53, 127, 1);
+    font-size: 3em;
+    padding-top: 15px;
+    text-transform: capitalize;
+    padding-left: 20px;
 }
 
 a.nav-link{
-    font-family: 'Suez One', serif;
+    font-family: 'Medula One', cursive;
+    color: rgba(18, 53, 127, 1);
+    font-size: 22px;
+    padding-top: 15px;
+    margin-right:20px;
 }
 
 /* Home */
@@ -38,12 +41,104 @@ a.nav-link{
 }
 
 .learnMore {
-    color: red;
+    color: 7A4A8D;
 }
 
 /* card */
-.card-title {
+.cardContent.jobDetail {
     text-transform: uppercase;
-    font-weight: 900;
-    color: red;
 }
+
+/* footer */
+div.right{
+    color: rgba(18, 53, 127, 1);
+    margin-bottom: 0%;
+    padding-top: 50px;
+    
+}
+
+nav, footer.page-footer{
+    background-color: rgba(44, 40, 45, .0);
+    height: 100px;
+}
+
+
+/* home */
+.homeh1 {
+    padding-top: 50px;
+    color: white;
+    font-size: 5em;
+    font-family: 'Bevan', cursive;
+
+}
+
+.homep {
+    color: white;
+    font-size: 32px;
+    font-family: 'Medula One', cursive;
+}
+
+.homeSub {
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Bevan', cursive;
+}
+
+.homeli, li, span.helptext{
+    color: white;
+    font-family: 'Medula One', cursive;
+    font-size: 25px;
+}
+
+
+/* Login */
+ .loginh1, .signuph1 {
+     color: white;
+    font-size: 4em;
+    font-family: 'Bevan', cursive;
+    padding-top: 80px;
+ }
+ label {
+     color: white;
+     font-size: 18px;
+ }
+
+ input.btn{
+     background-color: rgba(18, 53, 127, 1);
+ }
+
+ input#id_username,input#id_password, input#id_password1, input#id_password2   {
+    width: 50%;
+    background-color: white;
+    height: 30px;
+ }
+ 
+
+
+ /* Detail page */
+
+ .jobdetailh1{
+    color: white;
+    font-size: 3em;
+    font-family: 'Bevan', cursive;
+    padding-top: 80px;
+    text-decoration: underline;
+ }
+
+ div.card-content{
+     background-color: rgba(18, 53, 127, 1);
+     color: rgba(134, 228, 155);
+ }
+
+ input#id_date, textarea#id_comment {
+     background-color: white;
+     color:rgba(18, 53, 127, 1);
+ }
+ .select-wrapper input.select-dropdown {
+     background-color: white;
+     color:rgba(18, 53, 127, 1);
+ }
+
+ th, label.active{
+    color:rgba(18, 53, 127, 1);
+ }

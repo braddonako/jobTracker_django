@@ -18,6 +18,7 @@ def signup(request):
     # that includes the data from the browser
     form = UserCreationForm(request.POST)
     if form.is_valid():
+        
       # This will add the user to the database
       user = form.save()
       # This is how we log a user in via code

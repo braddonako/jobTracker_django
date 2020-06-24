@@ -1,43 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 class='red-text'>Job Detail</h1>
+<h1 class='jobdetailh1'>{{job.position}} @ {{ job.company }}</h1>
   <div class="row">
   <div class="col s6">
   <div class="card">
     <div class="card-content">
-      <span class="card-title">{{ job.company }}</span>
-      <p>{{job.position}}</p>
-      <p>Date applied: {{ job.date }}</p>
-      <p>Location: {{job.location}}</p>
-      <p>Important notes: {{job.comment}}</p> 
+      <span class="card-title">Applied on {{ job.date }}</span>
+      <p><span class='jobDetail'>Location:</span> {{job.location}}</p>
+      <p><span class='jobDetail'>Important Notes:</span> {{job.comment}}</p>
     </div>
-    <div class="card-action red">
-        <a class='black-text' href="{% url 'jobs_update' job.id %}">Edit</a>
-        <a class='black-text' href="{% url 'jobs_delete' job.id %}">Delete</a>
+    <div class="card-action">
+        <a class='detailbtn' href="{% url 'jobs_update' job.id %}">Edit</a>
+        <a class='detailbtn' href="{% url 'jobs_delete' job.id %}">Delete</a>
     </div>
   </div>
-
-  <!-- {% for resume in job.resume_set.all %} -->
-  <!-- <img class="responsive-img card-panel" src="{{resume.resume}}">
-  {% empty %}
-  <div class="card-panel teal-text center-align">No Files Uploaded</div>
-  {% endfor %} -->
-
-  <!-- <form enctype="multipart/form-data" method="POST" class="card-panel">
-    {% csrf_token %}
-    <input type="file" name="add_resume">
-    <br><br>
-    <input type="submit" class="btn" value="Upload File">
-  </form> -->
-
 
   </div>
   <div class="col s6">
     <form action="{% url 'add_note' job.id %}" method="post">
       {% csrf_token %}
       {{ note_form.as_p }}
-      <input type="submit" class="btn red black-text" value="Add Note">
+      <input type="submit" class="btn" value="Add Note">
     </form>
     <table class="striped">
       <thead>
