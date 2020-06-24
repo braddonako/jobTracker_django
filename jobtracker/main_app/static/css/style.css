@@ -1,4 +1,14 @@
+@media (min-width: 600px) {
+a.left.brand-logo {
+    font-family: 'Medula One', cursive;
+    color: rgba(18, 53, 127, 1);
+    font-size: 3em;
+    padding-top: 15px;
+    padding-left: 20px;
+}
 
+
+}   
 body {
     display: flex;
     min-height: 100vh;
@@ -18,19 +28,18 @@ footer.page-footer {
 }
 
 a.left.brand-logo{
-    font-family: 'Medula One', cursive;
+    font-family: 'Bevan', cursive;
     color: rgba(18, 53, 127, 1);
-    font-size: 3em;
-    padding-top: 15px;
-    text-transform: capitalize;
-    padding-left: 20px;
+    font-size: 22px;
+    padding-top: 20px;
+    padding-left: 50px;
 }
 
 a.nav-link{
-    font-family: 'Medula One', cursive;
+    font-family: 'Bevan', cursive;
     color: rgba(18, 53, 127, 1);
     font-size: 22px;
-    padding-top: 15px;
+    padding-top: 20px;
     margin-right:20px;
 }
 
@@ -65,12 +74,24 @@ i.material-icons {
 }
 
 .learnMore {
-    color: 7A4A8D;
+    color: red;
+    text-transform: uppercase;
+    padding-top: 15px;
 }
 
 /* card */
 .cardContent.jobDetail {
     text-transform: uppercase;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: rgba(18, 53, 127, 1);
+    margin-right: 24px;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+    text-transform: uppercase;
+    font-family: 'Bevan',
+    cursive;
 }
 
 /* footer */
@@ -115,7 +136,7 @@ nav, footer.page-footer{
 }
 
 
-/* Login */
+/* Login / signup*/
  .loginh1, .signuph1 {
      color: white;
     font-size: 4em;
@@ -123,7 +144,7 @@ nav, footer.page-footer{
     padding-top: 80px;
  }
  label {
-     color: white;
+     color: rgba(18, 53, 127, 1);
      font-size: 18px;
  }
 
@@ -131,27 +152,59 @@ nav, footer.page-footer{
      background-color: rgba(18, 53, 127, 1);
  }
 
- input#id_username,input#id_password, input#id_password1, input#id_password2   {
+ input#id_username,
+ input#id_password, 
+ input#id_password1, 
+ input#id_password2   {
     width: 50%;
     background-color: white;
     height: 30px;
  }
  
 
+ /* ADD JOB */
+.addjobh1 {
+     color: white;
+     font-size: 3em;
+     font-family: 'Bevan',
+     cursive;
+     padding-top: 80px;
+}
+
+input#id_company,
+input#id_position,
+input#id_location {
+    background-color: white;
+}
 
  /* Detail page */
+
+ .welcome {
+     color: white;
+     font-size: 3em;
+     font-family: 'Bevan',
+     cursive;
+     padding-top: 70px;
+ }
 
  .jobdetailh1, .joblisth1{
     color: white;
     font-size: 3em;
     font-family: 'Bevan', cursive;
-    padding-top: 80px;
+    padding-top: 30px;
     text-decoration: underline;
  }
 
  div.card-content{
      background-color: rgba(18, 53, 127, 1);
      color: rgba(134, 228, 155);
+     /* height: 320px; */
+ }
+
+ div.card-contentdetail{
+     background-color: rgba(18, 53, 127, 1);
+     color: rgba(134, 228, 155);
+     height: 320px;
  }
 
  input#id_date, textarea#id_comment {
@@ -180,4 +233,11 @@ nav, footer.page-footer{
  .tdbody {
      color: rgba(18, 53, 127, 1);
      font-size: 15px;
+ }
+
+ .addUpdateh4 {
+     color: white;
+    /* font-size: 3em; */
+    font-family: 'Bevan', cursive;
+    text-decoration: underline;
  }

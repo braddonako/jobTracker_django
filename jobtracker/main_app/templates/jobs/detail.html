@@ -5,19 +5,20 @@
   <div class="row">
   <div class="col s6">
   <div class="card">
-    <div class="card-content">
-      <span class="card-title">Applied on {{ job.date }}</span>
+    <div class="card-contentdetail">
+      <span class="card-titledetail">Applied on {{ job.date }}</span>
       <p><span class='jobDetail'>Location:</span> {{job.location}}</p>
       <p><span class='jobDetail'>Important Notes:</span> {{job.comment}}</p>
     </div>
     <div class="card-action">
-        <a class='detailbtn' href="{% url 'jobs_update' job.id %}">Edit</a>
+        <a class='detailbtn text-blue' href="{% url 'jobs_update' job.id %}">Edit</a>
         <a class='detailbtn' href="{% url 'jobs_delete' job.id %}">Delete</a>
     </div>
   </div>
 
   </div>
   <div class="col s6">
+    <h4 class='addUpdateh4'>Add an update</h4>
     <form action="{% url 'add_note' job.id %}" method="post">
       {% csrf_token %}
       {{ note_form.as_p }}
@@ -25,6 +26,7 @@
     </form>
   </div>
   <div>
+    
     <table class="striped">
       <thead>
         <tr><th>Date</th><th>Note</th><th>Status</th></tr>
