@@ -76,7 +76,9 @@ i.material-icons {
 .learnMore {
     color: red;
     text-transform: uppercase;
-    padding-top: 15px;
+    padding-top: 12px;
+    margin-bottom: 0;
+    font-size: 15px;
 }
 
 /* card */
@@ -144,14 +146,29 @@ nav, footer.page-footer{
     padding-top: 80px;
  }
  label {
-     color: rgba(18, 53, 127, 1);
+     /* color: rgba(18, 53, 127, 1); */
+     color: rgba(134, 228, 155);
      font-size: 18px;
  }
 
  input.btn{
-     background-color: rgba(18, 53, 127, 1);
+     background-color: white;
+     color: rgba(18, 53, 127, 1);
+     font-family: 'Bevan',
+     cursive;
+     /* margin-top: 10px; */
+     font-size: 15px;
+     height: 50px;
  }
 
+ input.btn-add {
+     color: rgba(134, 228, 155);
+     background-color: rgba(18, 53, 127, 1);
+     padding: 15px;
+     font-size: 15px;
+     font-family: 'Bevan',
+     cursive;
+ }
  input#id_username,
  input#id_password, 
  input#id_password1, 
@@ -196,9 +213,27 @@ input#id_location {
  }
 
  div.card-content{
-     background-color: rgba(18, 53, 127, 1);
-     color: rgba(134, 228, 155);
+     background-color: rgba(18, 53, 127, .7);
+     color: white;
+     font-family: 'Bevan', cursive;
+     font-size: 18px;
      /* height: 320px; */
+ }
+ /* div.col.s6 {
+     background-color: rgba(18, 53, 127, .7);
+     color: white;
+     font-family: 'Bevan',
+     cursive;
+     font-size: 18px;
+ } */
+
+ .row .col.s6 {
+     background-color: rgba(18, 53, 127, 1);
+     width: 50%;
+     margin-left: auto;
+     left: auto;
+     right: auto;
+     height: 410px;
  }
 
  div.card-contentdetail{
@@ -218,6 +253,7 @@ input#id_location {
 
  th, label.active{
     color:rgba(18, 53, 127, 1);
+    color: rgba(134, 228, 155);
  }
 
  .striped {
