@@ -117,7 +117,7 @@ nav, footer.page-footer{
 
  /* Detail page */
 
- .jobdetailh1{
+ .jobdetailh1, .joblisth1{
     color: white;
     font-size: 3em;
     font-family: 'Bevan', cursive;
