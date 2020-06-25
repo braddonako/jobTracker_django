@@ -1,14 +1,4 @@
-@media (min-width: 600px) {
-a.left.brand-logo {
-    font-family: 'Medula One', cursive;
-    color: rgba(18, 53, 127, 1);
-    font-size: 3em;
-    padding-top: 15px;
-    padding-left: 20px;
-}
 
-
-}   
 body {
     display: flex;
     min-height: 100vh;
@@ -235,7 +225,7 @@ input#id_location {
      margin-left: auto;
      left: auto;
      right: auto;
-     height: 410px;
+     height: 430px;
  }
 
  div.card-contentdetail{
