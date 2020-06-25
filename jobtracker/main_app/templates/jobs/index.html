@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+
 <h1 class='joblisth1'>Applied jobs</h1>
 
-
-<div class='search-bar mt-sm-2 mr-2'>
-  <form method='get'>
-    <input type='text' class='form-control' name='q' id='id_q' placeholder='search...'>
+<!-- <div class='search-bar mt-sm-2 mr-2'>
+  <form method='get' action="{% url 'search'%}"">
+    <input type='text' class='form-control' name='q' value="{{request.GET.q}}" id='id_q' placeholder='search...'>
+    <input type="submit" class="btn" value="Submit">
   </form>
 
-</div>
-
-
+</div> -->
 
 {% for job in items %}
   <div class="card">
@@ -31,23 +31,37 @@
 
 {% endfor %}
 
+{% if items.paginator.num_pages > 1 %}
+
 <div class="pagination">
-  <span class="step-links">
-    {% if items.has_previous %}
-    <a href="?page=1">&laquo; first</a>
-    <a href="?page={{ items.previous_page_number }}">previous</a>
+  {% if items.has_previous %}
+  <a class='pagination-action' href="?page=1">
+    <i class="fa fa-angle-double-left" aria-hidden="true"></i> 
+  </a>
+  <a href="?page={{ items.previous_page_number }}">
+    <i class="fa fa-angle-left" aria-hidden="true"></i>
+  </a>
+  {% endif %}
+  {% for num in items.paginator.page_range %}
+        {% if items.number == num %}
+            <span class="pagination-number pagination-current">{{ num }}</span>
+        {% elif num > items.number|add:'-3' and num < items.number|add:'3' %}
+            <a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+  {% if items.has_next %}
+        <a class="pagination-action" href="?page={{ items.next_page_number }}">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </a>
+        <a class="pagination-action" href="?page={{ items.paginator.num_pages }}">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
     {% endif %}
-
-    <span class="current">
-      Page {{ items.number }} of {{items.paginator.num_pages }}.
-    </span>
-
-    {% if items.has_next %}
-    <a href="?page={{ items.next_page_number }}">next</a>
-    <a href="?page={{ items.paginator.num_pages }}">last &raquo;</a>
-    {% endif %}
-  </span>
 </div>
+
+{% endif %}
+
+
 
 
 <script type='text/javascript'>

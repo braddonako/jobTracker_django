@@ -7,6 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+# from example.config import pagination
+
 import uuid
 
 from .models import Job
@@ -67,7 +69,7 @@ class JobDelete(LoginRequiredMixin, DeleteView):
 def jobs_index(request):
     jobs = Job.objects.filter(user=request.user)
 
-    paginator = Paginator(jobs, 12)
+    paginator = Paginator(jobs, 8)
     page = request.GET.get('page')
 
     try:
@@ -78,9 +80,21 @@ def jobs_index(request):
         items = paginator.page(paginator.num_pages)
 
 
-
     return render(request, 'jobs/index.html', {'items': items })
 
+def search(request):
+    template = 'jobs/index.html'
+
+    query = request.GET.get('q')
+    #.filter(Q(company__icontains=query) is encapsulation
+    results = Job.objects.filter(Q(company__icontains=query) | Q(position__icontains=query) | Q(date__icontains=query) | Q(location__icontains=query))
+    pages = pagination(request, results, num=1)
+
+    context = {
+        'items': pages[0],
+        'page_range': pages[1],
+    }
+    return render(request, template, context)
 
 @login_required
 def jobs_detail(request, job_id):
@@ -101,8 +115,3 @@ def add_note(request, job_id):
     return redirect('detail', job_id=job_id)
 
 
-def search(request):
-    template = 'jobs/index.html'
-
-    query = request.GET.get('q')
-    results = Job.objects.filter(Q(company__icontains=query) | Q(position__icontains=query) | Q(date__icontains=query) | Q(location__icontains=query))
