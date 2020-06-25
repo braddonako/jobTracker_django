@@ -3,7 +3,17 @@
 
 <h1 class='joblisth1'>Applied jobs</h1>
 
-{% for job in jobs %}
+
+<div class='search-bar mt-sm-2 mr-2'>
+  <form method='get'>
+    <input type='text' class='form-control' name='q' id='id_q' placeholder='search...'>
+  </form>
+
+</div>
+
+
+
+{% for job in items %}
   <div class="card">
       <a href='{% url "detail" job.id%}' class='jobId'>
     <div class="card-content">
@@ -18,6 +28,31 @@
     </div>
     </a>
   </div>
+
 {% endfor %}
 
+<div class="pagination">
+  <span class="step-links">
+    {% if items.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ items.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ items.number }} of {{items.paginator.num_pages }}.
+    </span>
+
+    {% if items.has_next %}
+    <a href="?page={{ items.next_page_number }}">next</a>
+    <a href="?page={{ items.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+  </span>
+</div>
+
+
+<script type='text/javascript'>
+  document.getElementById('id_q').value = "{{query}}"
+</script>
+
 {% endblock %}
+

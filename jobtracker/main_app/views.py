@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 import uuid
 
@@ -64,7 +66,20 @@ class JobDelete(LoginRequiredMixin, DeleteView):
 @login_required
 def jobs_index(request):
     jobs = Job.objects.filter(user=request.user)
-    return render(request, 'jobs/index.html', { 'jobs': jobs })
+
+    paginator = Paginator(jobs, 12)
+    page = request.GET.get('page')
+
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        items = paginator.page(1)
+    except EmptyPage:
+        items = paginator.page(paginator.num_pages)
+
+
+
+    return render(request, 'jobs/index.html', {'items': items })
 
 
 @login_required
@@ -86,3 +101,8 @@ def add_note(request, job_id):
     return redirect('detail', job_id=job_id)
 
 
+def search(request):
+    template = 'jobs/index.html'
+
+    query = request.GET.get('q')
+    results = Job.objects.filter(Q(company__icontains=query) | Q(position__icontains=query) | Q(date__icontains=query) | Q(location__icontains=query))

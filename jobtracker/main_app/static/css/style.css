@@ -269,3 +269,11 @@ input#id_location {
     font-family: 'Bevan', cursive;
     text-decoration: underline;
  }
+
+
+ /* search bar */
+ .search-bar{
+     max-width: 300px;
+     width: 100%;
+     background-color: white;
+ }
