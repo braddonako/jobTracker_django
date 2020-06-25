@@ -1,11 +1,18 @@
 
 body {
     display: flex;
-    min-height: 115vh;
+    min-height: 100vh;
     flex-direction: column;
     /* background-color: rgba(134, 228, 155); */
     background-color: white;
 }
+
+/* use to center anything */
+.center {
+    padding: 70px 0;
+    text-align: center;
+}
+
 
 main {
     flex: 1 0 auto;
@@ -142,10 +149,11 @@ nav, footer.page-footer{
 
 /* home */
 .homeh1 {
-    padding-top: 85px;
+    /* padding-top: 85px; */
     color: rgba(134, 228, 155);
     font-size: 5em;
     font-family: 'Bevan', cursive;
+    padding: 70px 0 10px 0;
 }
 
 .homep {
@@ -172,8 +180,13 @@ nav, footer.page-footer{
      color: rgba(134, 228, 155);
     font-size: 4em;
     font-family: 'Bevan', cursive;
-    padding-top: 80px;
+    
  }
+
+ h1.loginh1 {
+     padding-top: 150px;
+ }
+
  label {
      color: rgba(18, 53, 127, 1);
      /* color: rgba(134, 228, 155); */
