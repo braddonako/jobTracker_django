@@ -141,6 +141,20 @@ nav, footer.page-footer{
      font-size: 18px;
  } 
 
+ h5.testact {
+     font-family: 'Bevan', cursive;
+     color: white;
+ }
+
+ p.testlog {
+     /* font-family: 'Bevan', cursive; */
+     color: white;
+ }
+
+ input{
+     color: black;
+ }
+
  input.btn{
      background-color: white;
      color: rgba(18, 53, 127, 1);
