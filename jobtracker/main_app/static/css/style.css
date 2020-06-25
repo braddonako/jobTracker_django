@@ -105,7 +105,7 @@ div.right{
 }
 
 nav, footer.page-footer{
-    background-color: rgba(44, 40, 45, .0);
+    background-color: rgba(218, 173, 134, .0);
     height: 100px;
 }
 
@@ -146,10 +146,10 @@ nav, footer.page-footer{
     padding-top: 80px;
  }
  label {
-     /* color: rgba(18, 53, 127, 1); */
-     color: rgba(134, 228, 155);
+     color: rgba(18, 53, 127, 1);
+     /* color: rgba(134, 228, 155); */
      font-size: 18px;
- }
+ } 
 
  input.btn{
      background-color: white;
@@ -193,6 +193,8 @@ input#id_position,
 input#id_location {
     background-color: white;
 }
+
+
 
  /* Detail page */
 
@@ -253,7 +255,7 @@ input#id_location {
 
  th, label.active{
     color:rgba(18, 53, 127, 1);
-    color: rgba(134, 228, 155);
+    /* color: rgba(134, 228, 155); */
  }
 
  .striped {
