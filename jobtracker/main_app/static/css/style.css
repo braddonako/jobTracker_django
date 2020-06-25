@@ -1,9 +1,10 @@
 
 body {
     display: flex;
-    min-height: 100vh;
+    min-height: 115vh;
     flex-direction: column;
-    background-color: rgba(134, 228, 155);
+    /* background-color: rgba(134, 228, 155); */
+    background-color: white;
 }
 
 main {
@@ -125,42 +126,42 @@ span.pagination-number:hover,
 
 
 /* footer */
-div.right{
+/* div.right{
     color: rgba(18, 53, 127, 1);
     margin-bottom: 0%;
     padding-top: 50px;
+    background-color: rgba(134, 228, 155);
     
-}
+} */
 
 nav, footer.page-footer{
-    background-color: rgba(218, 173, 134, .0);
+    background-color: rgba(134, 228, 155);
     height: 100px;
 }
 
 
 /* home */
 .homeh1 {
-    padding-top: 50px;
-    color: white;
+    padding-top: 85px;
+    color: rgba(134, 228, 155);
     font-size: 5em;
     font-family: 'Bevan', cursive;
-
 }
 
 .homep {
-    color: white;
+    color: rgba(18, 53, 127, 1);
     font-size: 32px;
     font-family: 'Medula One', cursive;
 }
 
 .homeSub {
-    color: white;
+    color: rgba(134, 228, 155);
     font-size: 2.5em;
     font-family: 'Bevan', cursive;
 }
 
 .homeli, li, span.helptext{
-    color: white;
+    color: rgba(18, 53, 127, 1);
     font-family: 'Medula One', cursive;
     font-size: 25px;
 }
@@ -168,7 +169,7 @@ nav, footer.page-footer{
 
 /* Login / signup*/
  .loginh1, .signuph1 {
-     color: white;
+     color: rgba(134, 228, 155);
     font-size: 4em;
     font-family: 'Bevan', cursive;
     padding-top: 80px;
@@ -189,12 +190,9 @@ nav, footer.page-footer{
      color: white;
  }
 
- input{
-     color: black;
- }
 
  input.btn{
-     background-color: white;
+     background-color: rgba(134, 228, 155);
      color: rgba(18, 53, 127, 1);
      font-family: 'Bevan',
      cursive;
@@ -223,7 +221,7 @@ nav, footer.page-footer{
 
  /* ADD JOB */
 .addjobh1 {
-     color: white;
+     color: rgba(134, 228, 155);
      font-size: 3em;
      font-family: 'Bevan',
      cursive;
@@ -236,7 +234,13 @@ input#id_location {
     background-color: white;
 }
 
-
+.edith1{
+    color: rgba(134, 228, 155);
+    /* font-size: 3em; */
+    font-family: 'Bevan',
+    cursive;
+    padding-top: 100px;
+}
 
  /* Detail page */
 
@@ -249,10 +253,10 @@ input#id_location {
  }
 
  .jobdetailh1, .joblisth1{
-    color: white;
+    color: rgba(18, 53, 127, 1);
     font-size: 3em;
     font-family: 'Bevan', cursive;
-    padding-top: 30px;
+    padding-top: 75px;
     text-decoration: underline;
  }
 
@@ -309,7 +313,7 @@ input#id_location {
  }
 
  .addUpdateh4 {
-     color: white;
+     color: rgba(134, 228, 155);
     /* font-size: 3em; */
     font-family: 'Bevan', cursive;
     text-decoration: underline;
